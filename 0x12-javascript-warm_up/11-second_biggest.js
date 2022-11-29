@@ -1,10 +1,9 @@
 #!/usr/bin/node
-function ascending (a, b) {
-  return b - a;
-}
-const args = process.argv.length;
-if (args <= 3) {
+if (process.argv.length <= 3) {
   console.log(0);
 } else {
-  console.log(process.argv.slice(2).sort(ascending)[1]);
+  const args = process.argv.map(Number)
+    .slice(2, process.argv.length)
+    .sort((a, b) => a - b);
+  console.log(args[args.length - 2]);
 }
